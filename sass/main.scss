@@ -1,0 +1,138 @@
+@import './config';
+
+body {
+   width: 100%;
+   height: 100vh;
+   background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5Ab);
+   font-family: 'Patua One', cursive;
+   color: $primary-color;
+   overflow: hidden;
+   background-size: 400% 400%;
+   position: relative;
+   animation: change 10s ease-in-out infinite;
+}
+
+
+
+a {
+   color: $primary-color;
+}
+.container {
+   width: 100%;
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   .clock {
+      margin-top: -80px;
+      font-size: 40px;
+      letter-spacing: 2px;
+   }
+   .title {
+      width: 100%;
+      text-align: center;
+      margin: 10px 0 20px;
+      display: flex;
+      justify-content: center;
+
+      h1 {
+         font-size: 5rem;
+         letter-spacing: 3px;
+         font-weight: 400;
+      }
+      .typed-cursor {
+         font-size: 5rem;
+         font-weight: 100;
+      }
+   }
+
+   .form {
+      width: 100%;
+      text-align: center;
+      visibility: hidden;
+      transition: 200ms linear;
+      transform: scale(0);
+      i {
+         font-size: 20px;
+         color: rgb(114, 111, 111);
+         position: absolute;
+         margin-left: 18px;
+         margin-top: 15px;
+         cursor: pointer;
+
+         &:hover {
+            color: $secondary-color;
+         }
+      }
+      input {
+         width: 600px;
+         height: 50px;
+         border-radius: 30px;
+         outline: none;
+         padding: 20px 20px 20px 50px;
+         font-size: 20px;
+         border-style: none;
+         z-index: 0;
+      }
+   }
+
+
+   .button {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(45deg, #EE7752, #E73C7E, #23A6D5, #23D5Ab);
+      animation: change 10s ease-in-out infinite;
+      background-size: 300% 300%;
+      margin-bottom: 30px;
+      padding: 20px;
+      border-radius: 50%;
+      text-align: center;
+      transition: 200ms linear;
+      overflow: hidden;
+      position: relative;
+      a i{
+         padding: 0 20px 0 20px;
+         font-size: 25px;
+         visibility: hidden;
+         transition: 200ms linear;
+         transform: translateX(-1000px);
+
+         &:hover {
+            color: $secondary-color;
+         }
+      }
+      .search {
+         visibility: visibel;
+         transition: 200ms linear;
+         transform: translateY(0);
+      }
+      &:hover {
+         width: 200px;
+         border-radius: 30px;
+
+         a i{
+            visibility: visible;
+            transform: translateX(0);
+         }
+         .search {
+            visibility: hidden;
+            position: absolute;
+            transform: translate(100px,-100px);
+         }
+      }
+
+   }
+   @keyframes change {
+      0% {
+         background-position: 0 50%;
+      }
+      50% {
+         background-position: 100% 50%;
+      }
+      100% {
+         background-position: 0 50%;
+      }
+   
+   }
+}
