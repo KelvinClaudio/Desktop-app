@@ -27,12 +27,12 @@ const timeStr = getTime()
 function update (){
    let title;
    if(parseInt(timeStr[0]) >= 5 && parseInt(timeStr[0]) < 11) {
-      title = ["Good Morning, nomi ", "Have a nice day :)"]
+      title = ["Good Morning, Nomi ", "Have a nice day :)"]
          
    }else if(parseInt(timeStr[0]) >= 11 && parseInt(timeStr[0]) < 18) {
-      title = ["Good Aftenoon, nomi ", "Have a nice day :)"];
+      title = ["Good Aftenoon, Nomi ", "Have a nice day :)"];
    }else if(parseInt(timeStr[0]) >= 18 || parseInt(timeStr[0]) < 5) {
-      title = ["Good Night, nomi ", "Don't forget to sleep -o-"]
+      title = ["Good Night, Nomi ", "Don't forget to sleep -o-"]
    }
    return title;
 
