@@ -23,40 +23,45 @@ const showTime = () => {
 }
 showTime()
 // Can also be included with a regular script tag
-const timeStr = getTime()
-function update (){
-   let title;
-   if(parseInt(timeStr[0]) >= 5 && parseInt(timeStr[0]) < 11) {
-      title = ["Good Morning, Nomi ", "Have a nice day :)"]
-         
-   }else if(parseInt(timeStr[0]) >= 11 && parseInt(timeStr[0]) < 18) {
-      title = ["Good Aftenoon, Nomi ", "Have a nice day :)"];
-   }else if(parseInt(timeStr[0]) >= 18 || parseInt(timeStr[0]) < 5) {
-      title = ["Good Night, Nomi ", "Don't forget to sleep -o-"]
+const timeStr = getTime();
+let name;
+window.addEventListener('load', () => {
+   if(!localStorage.likes) {
+      name = prompt('Name ?')
+      localStorage.setItem('likes', name)
+   }else  {
+      name = localStorage.getItem('likes')
    }
-   return title;
+      let title;
+      if(parseInt(timeStr[0]) >= 5 && parseInt(timeStr[0]) < 11) {
+         title = [`Good Morning, ${name} `, "Have a nice day :)"]
+            
+      }else if(parseInt(timeStr[0]) >= 11 && parseInt(timeStr[0]) < 18) {
+         title = [`Good Aftenoon, ${name} `, "Have a nice day :)"];
+      }else if(parseInt(timeStr[0]) >= 18 || parseInt(timeStr[0]) < 5) {
+         title = [`Good Night, ${name} `, "Don't forget to sleep -o-"]
+      }
+      var typed = new Typed('#type', {
+         strings: [`${title[1]}`, `${title[0]}`,`${title[1]}`],
+         typeSpeed: 80,
+         backSpeed: 80,
+         startDelay: 300,
+         backDelay: 3000,  
+         smartBackspace: false,
+         cursorChar: '_'
+       });
+       var typed2 = new Typed('#gsearch', {
+         strings: ['Search Something...', 'Search on Google...'],
+         typeSpeed: 60,
+         backSpeed: 60,
+         attr: 'placeholder',
+         bindInputFocusEvents: true,
+         smartBackSpace: true,
+         loop: true
+       });
+}) 
 
-}
-const title = update()
 
-var typed = new Typed('#type', {
-   strings: [`${title[1]}`, `${title[0]}`,`${title[1]}`],
-   typeSpeed: 80,
-   backSpeed: 80,
-   startDelay: 300,
-   backDelay: 3000,  
-   smartBackspace: false,
-   cursorChar: '_'
- });
- var typed2 = new Typed('#gsearch', {
-   strings: ['Search Something...', 'Search on Google...'],
-   typeSpeed: 60,
-   backSpeed: 60,
-   attr: 'placeholder',
-   bindInputFocusEvents: true,
-   smartBackSpace: true,
-   loop: true
- });
 
 const toggleBtn = document.querySelector('.google');
 const form = document.querySelector('.form')
