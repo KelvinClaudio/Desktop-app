@@ -26,7 +26,7 @@ showTime()
 const timeStr = getTime();
 let name;
 window.addEventListener('load', () => {
-   if(!localStorage.likes) {
+   if(localStorage.likes === null || !localStorage.likes) {
       name = prompt('Name ?')
       localStorage.setItem('likes', name)
    }else  {
@@ -105,3 +105,4 @@ window.addEventListener("keyup", function(event) {
       clearField()
    }
  });
+
